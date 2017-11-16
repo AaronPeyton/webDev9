@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% set active_page = "data" %}
+{% block title %}Data Information{% endblock %}
+{% block content %}
+
+    <h1>Background Information</h1>
+    <p>
+        This data was created by FiveThirtyEight for a reasearch article on college earnings and degree choices. Thier data was based on a data se from the Ammerican Community Survey's 2010-2012 Public Use Microdata Series.
+    </p>
+    <p>
+        The American Community Survey, or ACS for short, is an ongoing survey that provides vital information on a yearly basis about our nation and its people. The information from the survey is used to help determine distribution of the federal budget. This money goes into federal programs such as school lunches and creating jobs building infrastructure.
+    </p>
+    <p>
+        sources:
+        <ul>
+            <li>http://www.census.gov/acs/www/data_documentation/pums_documentation/</li>
+            <li>https://think.cs.vt.edu/corgis/json/graduates/graduates.html</li>
+        </ul>
+    </p>
+    <p>
+        make different tabs,
+        one shows maybe average earnings for different major categories
+        one shows the least profitabler majors
+        one shows most profitable majors
+        one shows employment information
+    </p>
+
+{% endblock %}
