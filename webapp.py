@@ -9,9 +9,14 @@ with open('static/graduates.json') as graduate_data:
 def render_main():
     return render_template('data_information.html')
 
-@app.route("/p1")
-def render_page1():
-    return render_template('categoryInfo.html')
+@app.route("/major")
+def render_major():
+    return render_template('majorInfo.html')
+
+@app.route("/division")
+def render_division():
+    return render_template('divisionInfo.html')
+
 
 # @app.route("/p2")
 # def render_page2():
