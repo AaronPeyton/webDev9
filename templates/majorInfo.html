@@ -4,20 +4,15 @@
 {% block content %}
 
     <h1>Major Information</h1>
-    <p>
-        blah blah blah
-        blah blah blah
-        blah blah blah
-        blah blah blah
-        blah blah blah
-        blah blah blah
-    </p>
-    <!-- <p>
-        make different tabs,
-        one shows maybe average earnings for different major categories
-        one shows the least profitabler majors
-        one shows most profitable majors
-        one shows employment information
-    </p> -->
-
+    <form action="major">
+      <select name="Major">
+        {{ response_options }}
+      </select>
+      <br><br>
+      <input type="submit">
+    </form>
+    {% if response_major and response_info is defined %}
+    <h3>{{ response_major }}</h3>
+    <p>{{ response_info }} </p>
+    {% endif %}
 {% endblock %}

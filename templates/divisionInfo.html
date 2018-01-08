@@ -3,16 +3,21 @@
 {% block title %}Division Information{% endblock %}
 {% block content %}
 
-    <h1>Division Information</h1>
-    <p>
-        blah blah blah
-    </p>
-    <!-- <p>
-        make different tabs,
-        one shows maybe average earnings for different major categories
-        one shows the least profitabler majors
-        one shows most profitable majors
-        one shows employment information
-    </p> -->
+<h1>Department Information</h1>
+    <form action="division">
+        <select name="Division">
+            {{ response_options }}
+        </select>
+        <br><br>
+        <input type="submit">
+    </form>
+    {% if response_division and response_info is defined %}
+    <h3>{{ response_division }}</h3>
+    <p>{{ response_info }} </p>
+    {% endif %}
 
+    <!-- have like select a Category
+            and it displays differences across get_divisions
+            ie average... employment, earning, male/female ratio
+            -->
 {% endblock %}
