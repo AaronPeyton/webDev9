@@ -62,7 +62,7 @@ def get_majorDetail(major):
     major_detail = ''
     major_detail += Markup("<ul>")
     for item in majorList[major]:
-        major_detail += Markup("<li>%s</li>" %item)
+        major_detail += Markup("<li><h4>%s</h4></li>" %item)
         major_detail += Markup("<ul>")
         for item2 in majorList[major][item]:
             major_detail += Markup("<li>%s</li>" %item2)
@@ -82,7 +82,7 @@ def get_divisionDetail(department):
     dd = ''
     dd += Markup("<ul>")
     for item in divisionDetail[department]:
-        dd += Markup("<li>%s</li>" %item)
+        dd += Markup("<li><h4>%s</h4></li>" %item)
         dd += Markup("<ul>")
         for item2 in divisionDetail[department][item]:
             dd+= Markup("<li>%s: %s</li>" %(item2, divisionDetail[department][item][item2]))
@@ -91,7 +91,7 @@ def get_divisionDetail(department):
 
 
 def getMajorInfoDict():
-    majorInformation = {"Average Rank by Median Earnings": {}, "Average Totals in Majors": {}}
+    majorInformation = {"Division's Average Rank by Median Earnings": {}, "Average Total of Graduates in Division's Majors": {}}
     avgRank = {}
     avgTotal = {}
     for item in data:
@@ -107,11 +107,11 @@ def getMajorInfoDict():
 
     for item in avgRank:
         # print(item, avgRank[item])
-        majorInformation["Average Rank by Median Earnings"][item] = round(statistics.mean(avgRank[item]))
+        majorInformation["Division's Average Rank by Median Earnings"][item] = round(statistics.mean(avgRank[item]))
         # print(item, majorInformation["Average Rank by Median Earnings"][item])
     for item in avgTotal:
         # print(item, avgTotal[item])
-        majorInformation["Average Totals in Majors"][item] = round(statistics.mean(avgTotal[item]))
+        majorInformation["Average Total of Graduates in Division's Majors"][item] = round(statistics.mean(avgTotal[item]))
         # print(item, majorInformation["Average Totals in Majors"][item])
     return majorInformation
 
@@ -129,7 +129,7 @@ def getDemographicInfoDict():
             totalW[majorCategory] = item["Demographics"]["Women"]
         else:
             totalW[majorCategory] += item["Demographics"]["Women"]
-        demoInfo = {"Total Men per Division" : totalM, "Total Women per Division" : totalW}
+        demoInfo = {"Total Male Graduates per Division" : totalM, "Total Female Graduates per Division" : totalW}
     return demoInfo
 
 def getEmploymentInfoDict():
@@ -159,7 +159,7 @@ def getEmploymentInfoDict():
             avgUnempRate[majorCategory].append(item["Employment"]["Unemployment Rate"])
     for item in avgUnempRate:
         avgUnempRate[item] = statistics.mean(avgUnempRate[item])
-    employmentInfoDict = {"Total Full Time per Division" : totalFullTime, "Total Part Time per Division" : totalPartTime, "Total Unemployed per Division" : totalUnemp, "Average Unemployment Rate per Division" : avgUnempRate }
+    employmentInfoDict = {"Total Graduates Working Full Time per Division" : totalFullTime, "Total Graduates Working Part Time per Division" : totalPartTime, "Total Unemployed Graduates per Division" : totalUnemp, "Average Unemployment Rate  of Graduates per Division" : avgUnempRate }
     return employmentInfoDict
 
 def getEarningInfoDict():
@@ -188,7 +188,7 @@ def getEarningInfoDict():
             avgMedianEarnings[majorCategory].append(item["Earnings"]["Earnings Breakdown"]["Median Earnings"])
     for item in avgMedianEarnings:
         avgMedianEarnings[item] = round(statistics.mean(avgMedianEarnings[item]))
-    earningsInfo = {"Total in Low Wage Jobs" : totalLWJ, "Total in Non-College Jobs" : totalNCJ, "Total in College Jobs" : totalCJ, "Average Median Earnings": avgMedianEarnings}
+    earningsInfo = {"Total Graduates in Low Wage Jobs" : totalLWJ, "Total Graduates in Non-College Jobs" : totalNCJ, "Total Graduates in College Jobs" : totalCJ, "Graduate's Average Median Earnings": avgMedianEarnings}
     return earningsInfo
 
 
